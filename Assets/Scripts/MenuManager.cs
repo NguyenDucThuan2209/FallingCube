@@ -16,7 +16,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Image m_menuBackground;
     [SerializeField] Image m_ingameBackground;
 
-    private const string POLICY_LINK = "https://doc-hosting.flycricket.io/get-pack-delivery-privacy-policy/9d7358f7-b13b-4967-9097-3a3d355265b2/privacy";
+    private const string POLICY_LINK = "https://doc-hosting.flycricket.io/falling-cube-privacy-policy/fdc42be0-94b5-49bb-a547-25af555fd5f3/privacy";
     private void Awake()
     {
         if (m_instance != null)
@@ -83,8 +83,9 @@ public class MenuManager : MonoBehaviour
 
     public void SetScore(int score, int highScore)
     {
+        m_pauseScreen.SetScore(score);
         m_ingameScreen.SetScoreText(score);
+        m_endGameScreen.SetScoreText(score);
         m_menuScreen.SetHighScore(highScore);
-        m_endGameScreen.SetScoreText(score, highScore);
     }
 }

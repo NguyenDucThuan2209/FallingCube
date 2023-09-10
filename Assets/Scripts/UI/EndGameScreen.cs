@@ -6,12 +6,10 @@ using UnityEngine.UI;
 public class EndGameScreen : UIScreen
 {
     [SerializeField] Text m_scoreText;
-    [SerializeField] Text m_highScoreText;
 
-    public void SetScoreText(int score, int highScore)
+    public void SetScoreText(int score)
     {
         m_scoreText.text = "SCORE " + score;
-        m_highScoreText.text = "BEST " + highScore;
     }
 
     public void OnHomeButtonPressed()

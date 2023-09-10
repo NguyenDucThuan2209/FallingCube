@@ -9,7 +9,7 @@ public class IngameScreen : UIScreen
 
     public void SetScoreText(int score)
     {
-        m_scoreText.text = "BOX " + score;
+        m_scoreText.text = score.ToString();
     }
     public void OnPauseButtonPressed()
     {

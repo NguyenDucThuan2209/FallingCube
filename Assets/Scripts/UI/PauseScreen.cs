@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PauseScreen : UIScreen
 {
+    [SerializeField] Text m_score;
 
     public void OnResumeButtonPressed()
     {
@@ -20,5 +21,10 @@ public class PauseScreen : UIScreen
     {
         SoundManager.Instance.PlaySound("Click");
         MenuManager.Instance.BackToHome();
+    }
+
+    public void SetScore(int score)
+    {
+        m_score.text = score.ToString();
     }
 }
