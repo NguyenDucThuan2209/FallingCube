@@ -95,4 +95,31 @@ public class GameManager : MonoBehaviour
         ResetGameData();
         MenuManager.Instance.EndGame();
     }
+
+    #region IENumerator
+    public static IEnumerator IE_Translate(Transform obj, Vector3 start, Vector3 end, float duration, System.Action callbacks = null)
+    {
+        float t = 0;
+        while (t < duration)
+        {
+            obj.position = Vector3.Lerp(start, end, t / duration);
+            t += Time.deltaTime;
+            yield return null;
+        }
+        obj.position = end;
+        callbacks?.Invoke();
+    }
+    public static IEnumerator IE_Scale(Transform obj, Vector3 start, Vector3 end, float duration, System.Action callbacks = null)
+    {
+        float t = 0;
+        while (t < duration)
+        {
+            obj.localScale = Vector3.Lerp(start, end, t / duration);
+            t += Time.deltaTime;
+            yield return null;
+        }
+        obj.localScale = end;
+        callbacks?.Invoke();
+    }
+    #endregion
 }

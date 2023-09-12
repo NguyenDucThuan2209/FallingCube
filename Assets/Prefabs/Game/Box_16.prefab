@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_id: 16
-  m_highlight: {fileID: 6146277085391551382}
+  m_sprite: {fileID: 6146277084683531756}
+  m_highlight: {fileID: 6146277085391551380}
 --- !u!212 &6146277084683531756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -179,7 +180,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 10
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &6146277085299886259
 MonoBehaviour:

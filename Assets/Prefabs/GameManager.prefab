@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_id: -1
-  m_highlight: {fileID: 1661393010}
+  m_sprite: {fileID: 213317588}
+  m_highlight: {fileID: 1661393012}
 --- !u!212 &213317588
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1417048144, guid: 64ff699b0883a544fb4de5ff9076a260, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -172,7 +173,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -287635907, guid: 64ff699b0883a544fb4de5ff9076a260, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -256,7 +257,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -287635907, guid: 64ff699b0883a544fb4de5ff9076a260, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -315,7 +316,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_id: -1
-  m_highlight: {fileID: 285879247}
+  m_sprite: {fileID: 1406951900}
+  m_highlight: {fileID: 285879249}
 --- !u!212 &1406951900
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -356,7 +358,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1417048144, guid: 64ff699b0883a544fb4de5ff9076a260, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -440,7 +442,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -287635907, guid: 64ff699b0883a544fb4de5ff9076a260, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -499,7 +501,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_id: -1
-  m_highlight: {fileID: 1041915583}
+  m_sprite: {fileID: 1903194574}
+  m_highlight: {fileID: 1041915585}
 --- !u!212 &1903194574
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -540,7 +543,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1417048144, guid: 64ff699b0883a544fb4de5ff9076a260, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -649,6 +652,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_xLength: 3
   m_yLength: 4
+  m_heighStart: -1
+  m_heightDiff: 1.275
   m_boxPrefab: {fileID: 3243715834182428254, guid: c45e9eb77b495524eb7c1b2c66775158, type: 3}
   m_bottomBoxs:
   - {fileID: 1903194576}

@@ -5,14 +5,20 @@ using UnityEngine;
 public class Box : MonoBehaviour
 {
     [SerializeField] int m_id;
-    [SerializeField] GameObject m_highlight;
+    [SerializeField] SpriteRenderer m_sprite;
+    [SerializeField] SpriteRenderer m_highlight;
 
     public void HighlightBox()
     {
-        m_highlight.SetActive(true);
+        m_highlight.gameObject.SetActive(true);
     }
     public void UnhighlightBox()
     {
-        m_highlight.SetActive(false);
+        m_highlight.gameObject.SetActive(false);
+    }
+    public void SetOrder(int order)
+    {
+        m_highlight.sortingOrder = order;
+        m_sprite.sortingOrder = order + 1;
     }
 }
