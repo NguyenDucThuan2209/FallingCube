@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] int m_id;
+    [SerializeField] GameObject m_highlight;
 
-    // Update is called once per frame
-    void Update()
+    public void HighlightBox()
     {
-        
+        m_highlight.SetActive(true);
+    }
+    public void UnhighlightBox()
+    {
+        m_highlight.SetActive(false);
     }
 }

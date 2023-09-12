@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (m_state != GameState.Playing) return;
-
     }
 
     private void ResetGameData()
@@ -58,6 +57,7 @@ public class GameManager : MonoBehaviour
         m_vertical = new Vector2(bottomLeft.y, upperRight.y);
         m_horizontal = new Vector2(bottomLeft.x, upperRight.x);
     }
+
     public void ScorePoint()
     {
         m_score++;

@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0bc1c93b0fc644f845ffbdbb3981ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_id: -1
+  m_highlight: {fileID: 1661393010}
 --- !u!212 &213317588
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -312,6 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0bc1c93b0fc644f845ffbdbb3981ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_id: -1
+  m_highlight: {fileID: 285879247}
 --- !u!212 &1406951900
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -494,6 +498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0bc1c93b0fc644f845ffbdbb3981ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_id: -1
+  m_highlight: {fileID: 1041915583}
 --- !u!212 &1903194574
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -534,7 +540,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1417048144, guid: 64ff699b0883a544fb4de5ff9076a260, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -603,6 +609,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3709284834920282609}
+  - component: {fileID: 2924080256091298124}
   m_Layer: 0
   m_Name: MapHolder
   m_TagString: Untagged
@@ -628,3 +635,22 @@ Transform:
   m_Father: {fileID: 1687777554360036444}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2924080256091298124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442048455625223885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c6ff8919588f747bfcf58afe56a343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_xLength: 3
+  m_yLength: 4
+  m_boxPrefab: {fileID: 3243715834182428254, guid: c45e9eb77b495524eb7c1b2c66775158, type: 3}
+  m_bottomBoxs:
+  - {fileID: 1903194576}
+  - {fileID: 1406951902}
+  - {fileID: 213317590}
