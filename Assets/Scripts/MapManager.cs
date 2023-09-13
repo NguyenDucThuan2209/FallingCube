@@ -107,13 +107,16 @@ public class MapManager : MonoBehaviour
         {
             SoundManager.Instance.PlaySound("Drop");
 
+            var targetObj = m_current.transform;
             var start = m_current.transform.position;
             var end = new Vector3(m_current.transform.position.x, m_columnHeight[column] * m_heightDiff + m_heighStart, 0f);
-            StartCoroutine(GameManager.IE_Translate(m_current.transform, start, end, 0.1f, () => { MergeBox(column, m_columnHeight[column] - 1); }));
+            StartCoroutine(GameManager.IE_Translate(targetObj, start, end, 0.1f, () => {  }));
 
             m_columnHeight[column]++;
             m_current.SetOrder(m_columnHeight[column]);
             m_matrix[column, m_columnHeight[column] - 1] = m_current;
+
+            MergeBox(column, m_columnHeight[column] - 1);
         }
         else
         {
@@ -144,7 +147,7 @@ public class MapManager : MonoBehaviour
                 {
                     if (m_boxPrefabs[i].ID == currentBox.ID * 2)
                     {
-                        //Debug.LogWarning($"Merge:  {currentBox} ({column}, {row}) to {upBox.name} ({column}, {row - 1})");
+                        Debug.LogWarning($"Merge:  {currentBox} ({column}, {row}) to {upBox.name} ({column}, {row - 1})");
                         GameManager.Instance.ScorePoint(currentBox.ID * 2);
                         SoundManager.Instance.PlaySound("Merge");
 
@@ -175,7 +178,7 @@ public class MapManager : MonoBehaviour
                 {
                     if (m_boxPrefabs[i].ID == currentBox.ID * 2)
                     {
-                        //Debug.LogWarning($"Merge: {leftBox.name} ({column - 1}, {row}) to {currentBox} ({column}, {row})");
+                        Debug.LogWarning($"Merge: {leftBox.name} ({column - 1}, {row}) to {currentBox} ({column}, {row})");
                         GameManager.Instance.ScorePoint(currentBox.ID * 2);
                         SoundManager.Instance.PlaySound("Merge");
 
@@ -210,7 +213,7 @@ public class MapManager : MonoBehaviour
                 {
                     if (m_boxPrefabs[i].ID == currentBox.ID * 2)
                     {
-                        //Debug.LogWarning($"Merge: {rightBox.name} ({column + 1}, {row}) to {currentBox} ({column}, {row})");
+                        Debug.LogWarning($"Merge: {rightBox.name} ({column + 1}, {row}) to {currentBox} ({column}, {row})");
                         GameManager.Instance.ScorePoint(currentBox.ID * 2);
                         SoundManager.Instance.PlaySound("Merge");
 
@@ -244,13 +247,31 @@ public class MapManager : MonoBehaviour
             {
                 if (isNeedToDrop > 0)
                 {
+                    var targetObj = m_matrix[column, i].transform;
                     var start = m_matrix[column, i].transform.position;
                     var end = new Vector3(m_matrix[column, i].transform.position.x, (i - isNeedToDrop) * m_heightDiff + m_heighStart, 0f);
 
-                    StartCoroutine(GameManager.IE_Translate(m_matrix[column, i].transform, start, end, 0.1f));
+                    StartCoroutine(GameManager.IE_Translate(targetObj, start, end, 0.1f));
                     m_matrix[column, i - isNeedToDrop] = m_matrix[column, i];
                     m_matrix[column, i] = null;
                     AlignColumn(column);
+
+                    for (int j = 0; j < m_yLength; j++)
+                    {
+                        if (m_matrix[column, j] == null)
+                        {
+                            int count = j;
+                            do
+                            {
+                                count++;
+                                if (count >= m_yLength)
+                                {
+                                    return;
+                                }
+                            } while (m_matrix[column, count] == null);
+                            Debug.LogError("Not Clearly Align Column!");
+                        }
+                    }
                     return;
                 }
                 continue;

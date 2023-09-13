@@ -48,7 +48,8 @@ public class GameManager : MonoBehaviour
 
     private void ResetGameData()
     {
-        
+        m_score = 0;
+        m_mapManager.Initialize();
     }
     private void CalculateScreenSize()
     {
@@ -64,7 +65,7 @@ public class GameManager : MonoBehaviour
         m_score += point;
         m_bestScore = (m_bestScore < m_score) ? m_score : m_bestScore;
 
-        SoundManager.Instance.PlaySound("Score");
+        //SoundManager.Instance.PlaySound("Score");
         MenuManager.Instance.SetScore(m_score, m_bestScore);
     }
 
@@ -73,7 +74,6 @@ public class GameManager : MonoBehaviour
         Debug.LogWarning("Start Game");
 
         ResetGameData();
-        m_mapManager.Initialize();
         m_mapManager.gameObject.SetActive(true);
 
         m_state = GameState.Playing;
