@@ -5,8 +5,12 @@ using UnityEngine;
 public class Box : MonoBehaviour
 {
     [SerializeField] int m_id;
+    [SerializeField] int m_order;
     [SerializeField] SpriteRenderer m_sprite;
     [SerializeField] SpriteRenderer m_highlight;
+
+    public int ID => m_id;
+    public int Order => m_order;
 
     public void HighlightBox()
     {
@@ -18,7 +22,7 @@ public class Box : MonoBehaviour
     }
     public void SetOrder(int order)
     {
-        m_highlight.sortingOrder = order;
-        m_sprite.sortingOrder = order + 1;
+        m_sprite.sortingOrder = order + 2;
+        m_highlight.sortingOrder = order + 1;
     }
 }

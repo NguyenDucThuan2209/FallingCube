@@ -38,6 +38,7 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         HideAllScreen();
+        m_pauseScreen.SetScore(0);
         m_ingameScreen.ShowScreen();
         m_ingameScreen.SetScoreText(0);
         GameManager.Instance.StartGame();

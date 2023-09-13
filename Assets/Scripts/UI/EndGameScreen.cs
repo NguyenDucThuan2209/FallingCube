@@ -9,7 +9,7 @@ public class EndGameScreen : UIScreen
 
     public void SetScoreText(int score)
     {
-        m_scoreText.text = "SCORE " + score;
+        m_scoreText.text = score.ToString();
     }
 
     public void OnHomeButtonPressed()

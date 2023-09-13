@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_id: -1
+  m_order: 0
   m_sprite: {fileID: 213317588}
   m_highlight: {fileID: 1661393012}
 --- !u!212 &213317588
@@ -316,6 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_id: -1
+  m_order: 0
   m_sprite: {fileID: 1406951900}
   m_highlight: {fileID: 285879249}
 --- !u!212 &1406951900
@@ -501,6 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_id: -1
+  m_order: 0
   m_sprite: {fileID: 1903194574}
   m_highlight: {fileID: 1041915585}
 --- !u!212 &1903194574
@@ -601,8 +604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_state: 0
-  m_vertical: {x: 0, y: 0}
-  m_horizontal: {x: 0, y: 0}
+  m_mapManager: {fileID: 2924080256091298124}
 --- !u!1 &6442048455625223885
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3709284834920282609
 Transform:
   m_ObjectHideFlags: 0
@@ -654,7 +656,20 @@ MonoBehaviour:
   m_yLength: 4
   m_heighStart: -1
   m_heightDiff: 1.275
-  m_boxPrefab: {fileID: 3243715834182428254, guid: c45e9eb77b495524eb7c1b2c66775158, type: 3}
+  m_dropHeight: 5.5
+  m_boxPrefabs:
+  - {fileID: 3243715834182428254, guid: c45e9eb77b495524eb7c1b2c66775158, type: 3}
+  - {fileID: 177411619518068806, guid: 45e74ad2b299c624ba6b7a35433b871b, type: 3}
+  - {fileID: 1939375450481208937, guid: 3fe659152d61f684bb8870be8d4fcc65, type: 3}
+  - {fileID: 6146277084683531754, guid: 2bf69684be6e2eb4e8fba64e384d3c4a, type: 3}
+  - {fileID: 6608162937227186847, guid: 0e559ca56f928f749bdfbfa39926cfa5, type: 3}
+  - {fileID: 3213120586740512789, guid: b340ac7de49d1df4e8e30b150d0f68d4, type: 3}
+  - {fileID: 7228478878160112304, guid: b39f1efea55ce0747829ed914281ca72, type: 3}
+  - {fileID: 5527073089019710365, guid: 2a0969670bccb33459cf25638d88f59b, type: 3}
+  - {fileID: 8838344872558654729, guid: b06abcc6e5178464cb05ede1e4626d68, type: 3}
+  - {fileID: 8227335498172730121, guid: 316485784e145904b97a26f24472ee16, type: 3}
+  - {fileID: 4715787768787819896, guid: 108cb9f5588f5a34da2e3b60b68b711e, type: 3}
+  - {fileID: 1256609142402742053, guid: b0b32ab1497238b4f933ef89a8faaa11, type: 3}
   m_bottomBoxs:
   - {fileID: 1903194576}
   - {fileID: 1406951902}

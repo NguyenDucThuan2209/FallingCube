@@ -18,11 +18,12 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Properties")]
     [SerializeField] GameState m_state;
-    [SerializeField] Vector2 m_vertical;
-    [SerializeField] Vector2 m_horizontal;
+    [SerializeField] MapManager m_mapManager;
 
     private int m_score;
     private int m_bestScore;
+    private Vector2 m_vertical;
+    private Vector2 m_horizontal;
 
     public GameState State => m_state;
     public Vector2 Vertical => m_vertical;
@@ -58,9 +59,9 @@ public class GameManager : MonoBehaviour
         m_horizontal = new Vector2(bottomLeft.x, upperRight.x);
     }
 
-    public void ScorePoint()
+    public void ScorePoint(int point = 1)
     {
-        m_score++;
+        m_score += point;
         m_bestScore = (m_bestScore < m_score) ? m_score : m_bestScore;
 
         SoundManager.Instance.PlaySound("Score");
@@ -72,6 +73,9 @@ public class GameManager : MonoBehaviour
         Debug.LogWarning("Start Game");
 
         ResetGameData();
+        m_mapManager.Initialize();
+        m_mapManager.gameObject.SetActive(true);
+
         m_state = GameState.Playing;
     }
     public void PauseGame()
@@ -79,12 +83,14 @@ public class GameManager : MonoBehaviour
         Debug.LogWarning("Pause Game");
 
         m_state = GameState.Pausing;
+        m_mapManager.gameObject.SetActive(false);
     }
     public void ResumeGame()
     {
         Debug.LogWarning("Resume Game");
 
         m_state = GameState.Playing;
+        m_mapManager.gameObject.SetActive(true);
     }
     public void EndGame()
     {
@@ -94,6 +100,7 @@ public class GameManager : MonoBehaviour
 
         ResetGameData();
         MenuManager.Instance.EndGame();
+        m_mapManager.gameObject.SetActive(false);
     }
 
     #region IENumerator
@@ -102,6 +109,8 @@ public class GameManager : MonoBehaviour
         float t = 0;
         while (t < duration)
         {
+            if (obj == null) yield break;
+
             obj.position = Vector3.Lerp(start, end, t / duration);
             t += Time.deltaTime;
             yield return null;
@@ -114,6 +123,8 @@ public class GameManager : MonoBehaviour
         float t = 0;
         while (t < duration)
         {
+            if (obj == null) yield break;
+
             obj.localScale = Vector3.Lerp(start, end, t / duration);
             t += Time.deltaTime;
             yield return null;

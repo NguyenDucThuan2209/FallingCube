@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_id: 1024
+  m_order: 9
   m_sprite: {fileID: 8227335498172730127}
   m_highlight: {fileID: 8227335498688148284}
 --- !u!212 &8227335498172730127
