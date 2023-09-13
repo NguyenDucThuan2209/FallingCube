@@ -12,6 +12,7 @@ public class MapManager : MonoBehaviour
 
     [SerializeField] Box[] m_boxPrefabs;
     [SerializeField] Box[] m_bottomBoxs;
+    [SerializeField] TMPro.TextMeshPro m_text;
 
     private Box m_current;
     private Box[,] m_matrix;
@@ -24,6 +25,26 @@ public class MapManager : MonoBehaviour
     private void Update()
     {
         if (GameManager.Instance.State != GameState.Playing) return;
+
+        m_text.text = "";
+        if (m_matrix != null)
+        {
+            for (int i = 0; i < m_xLength; i++)
+            {
+                for (int j = 0; j < m_yLength; j++)
+                {
+                    if (m_matrix[i, j])
+                    {
+                        m_text.text += m_matrix[i, j] + "\n";
+                    }
+                    else
+                    {
+                        m_text.text += "null \n";
+                    }
+                }
+                m_text.text += "===================\n";
+            }
+        }
 
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (mousePos.y > m_dropHeight) return;
@@ -151,8 +172,10 @@ public class MapManager : MonoBehaviour
                         GameManager.Instance.ScorePoint(currentBox.ID * 2);
                         SoundManager.Instance.PlaySound("Merge");
 
+                        var positionMerge = new Vector3(upBox.transform.position.x, (row - 1) * m_heightDiff + m_heighStart, 0f);
+                        
                         m_matrix[column, row] = null;
-                        m_matrix[column, row - 1] = Instantiate(m_boxPrefabs[i], upBox.transform.position, Quaternion.identity, transform);
+                        m_matrix[column, row - 1] = Instantiate(m_boxPrefabs[i], positionMerge, Quaternion.identity, transform);
                         m_matrix[column, row - 1].SetOrder(m_columnHeight[column]);
 
                         Destroy(upBox.gameObject);
@@ -182,9 +205,10 @@ public class MapManager : MonoBehaviour
                         GameManager.Instance.ScorePoint(currentBox.ID * 2);
                         SoundManager.Instance.PlaySound("Merge");
 
-                        m_matrix[column - 1, row] = null;
+                        var positionMerge = new Vector3(currentBox.transform.position.x, row * m_heightDiff + m_heighStart, 0f);
 
-                        m_matrix[column, row] = Instantiate(m_boxPrefabs[i], currentBox.transform.position, Quaternion.identity, transform);
+                        m_matrix[column - 1, row] = null;
+                        m_matrix[column, row] = Instantiate(m_boxPrefabs[i], positionMerge, Quaternion.identity, transform);
                         m_matrix[column, row].SetOrder(m_columnHeight[column]);
 
                         Destroy(leftBox.gameObject);
@@ -217,9 +241,10 @@ public class MapManager : MonoBehaviour
                         GameManager.Instance.ScorePoint(currentBox.ID * 2);
                         SoundManager.Instance.PlaySound("Merge");
 
-                        m_matrix[column + 1, row] = null;
+                        var positionMerge = new Vector3(currentBox.transform.position.x, row * m_heightDiff + m_heighStart, 0f);
 
-                        m_matrix[column, row] = Instantiate(m_boxPrefabs[i], currentBox.transform.position, Quaternion.identity, transform);
+                        m_matrix[column + 1, row] = null;
+                        m_matrix[column, row] = Instantiate(m_boxPrefabs[i], positionMerge, Quaternion.identity, transform);
                         m_matrix[column, row].SetOrder(m_columnHeight[column]);
 
                         Destroy(rightBox.gameObject);
