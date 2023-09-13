@@ -12,7 +12,6 @@ public class MapManager : MonoBehaviour
 
     [SerializeField] Box[] m_boxPrefabs;
     [SerializeField] Box[] m_bottomBoxs;
-    [SerializeField] TMPro.TextMeshPro m_text;
 
     private Box m_current;
     private Box[,] m_matrix;
@@ -25,26 +24,6 @@ public class MapManager : MonoBehaviour
     private void Update()
     {
         if (GameManager.Instance.State != GameState.Playing) return;
-
-        m_text.text = "";
-        if (m_matrix != null)
-        {
-            for (int i = 0; i < m_xLength; i++)
-            {
-                for (int j = 0; j < m_yLength; j++)
-                {
-                    if (m_matrix[i, j])
-                    {
-                        m_text.text += m_matrix[i, j] + "\n";
-                    }
-                    else
-                    {
-                        m_text.text += "null \n";
-                    }
-                }
-                m_text.text += "===================\n";
-            }
-        }
 
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (mousePos.y > m_dropHeight) return;
